@@ -53,7 +53,6 @@ describe('Blog Posts', function() {
         // because we create three items on app load
         res.body.length.should.be.at.least(1);
         // each item should be an object with key/value pairs
-        // for `id`, `name` and `checked`.
         const expectedKeys = ['id', 'title', 'content', 'author', 'publishDate'];
         res.body.forEach(function(item) {
           item.should.be.a('object');
@@ -67,7 +66,7 @@ describe('Blog Posts', function() {
   //  2. inspect response object and prove it has right
   //  status code and that the returned object has an `id`
   it('should add a blog post on POST', function() {
-    const newItem = {title: 'Blog Post', content: 'new blog post', 'author': 'mm', 'publishDate': 'Apr 2017'};
+    const newItem = {title: 'Blog Post', content: 'new blog post', author: 'mm', publishDate: 'Apr 2017'};
     return chai.request(app)
       .post('/blog-posts')
       .send(newItem)
@@ -119,7 +118,7 @@ describe('Blog Posts', function() {
       // prove that the PUT request has right status code
       // and returns updated item
       .then(function(res) {
-        res.should.have.status(204);
+        res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.deep.equal(updateData);
