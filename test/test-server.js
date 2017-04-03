@@ -91,14 +91,14 @@ describe('Blog Posts', function() {
   //  5. Inspect the response object to ensure it
   //  has right status code and that we get back an updated
   //  item with the right data in it.
-  it('should update items on PUT', function() {
+  it('should update blog post on PUT', function() {
     // we initialize our updateData here and then after the initial
     // request to the app, we update it with an `id` property so
     // we can make a second, PUT call to the app.
     const updateData = {
       title: 'foo test',
       content: 'bar test',
-      author: 'bizz test',
+      author: 'Joe Doe',
       publishDate: 'Aug 2017'
     };
 
@@ -119,7 +119,7 @@ describe('Blog Posts', function() {
       // prove that the PUT request has right status code
       // and returns updated item
       .then(function(res) {
-        res.should.have.status(200);
+        res.should.have.status(204);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.deep.equal(updateData);
