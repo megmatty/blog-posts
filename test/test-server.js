@@ -82,7 +82,7 @@ describe('Blog Posts', function() {
       });
   });
 
-  // test strategy:
+   // test strategy:
   //  1. initialize some update data (we won't have an `id` yet)
   //  2. make a GET request so we can get an item to update
   //  3. add the `id` to `updateData`
@@ -90,15 +90,15 @@ describe('Blog Posts', function() {
   //  5. Inspect the response object to ensure it
   //  has right status code and that we get back an updated
   //  item with the right data in it.
-  it('should update blog post on PUT', function() {
+  it('should update blog posts on PUT', function() {
     // we initialize our updateData here and then after the initial
     // request to the app, we update it with an `id` property so
     // we can make a second, PUT call to the app.
     const updateData = {
-      title: 'foo test',
-      content: 'bar test',
-      author: 'Joe Doe',
-      publishDate: 'Aug 2017'
+      title: 'This is a blog',
+      content: 'this is some blog content',
+      author: 'MM',
+      publishDate: 'Today'
     };
 
     return chai.request(app)
@@ -118,9 +118,8 @@ describe('Blog Posts', function() {
       // prove that the PUT request has right status code
       // and returns updated item
       .then(function(res) {
-        res.should.have.status(204);
-        //changed to 204 because nothing is returned?
-        // res.should.be.json;
+        res.should.have.status(200);
+        res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.deep.equal(updateData);
       });
@@ -130,7 +129,7 @@ describe('Blog Posts', function() {
   //  1. GET a shopping list items so we can get ID of one
   //  to delete.
   //  2. DELETE an item and ensure we get back a status 204
-  it('should delete items on DELETE', function() {
+  it('should delete posts on DELETE', function() {
     return chai.request(app)
       // first have to get so we have an `id` of item
       // to delete
