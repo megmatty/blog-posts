@@ -67,7 +67,7 @@ describe('Blog Posts', function() {
   //  2. inspect response object and prove it has right
   //  status code and that the returned object has an `id`
   it('should add a blog post on POST', function() {
-    const newItem = {title: 'Blog Post', checked: false};
+    const newItem = {title: 'Blog Post', content: 'new blog post', 'author': 'mm', 'publishDate': 'Apr 2017'};
     return chai.request(app)
       .post('/blog-posts')
       .send(newItem)
