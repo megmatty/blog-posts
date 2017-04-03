@@ -118,7 +118,8 @@ describe('Blog Posts', function() {
       // prove that the PUT request has right status code
       // and returns updated item
       .then(function(res) {
-        res.should.have.status(200);
+        res.should.have.status(204);
+        //changed to 204 because nothing is returned?
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.deep.equal(updateData);
