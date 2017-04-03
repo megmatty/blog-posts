@@ -8,13 +8,16 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "body-parser": "^1.17.1",
-    "chai": "^3.5.0",
-    "express": "^4.15.2",
-    "mocha": "^3.2.0",
-    "uuid": "^3.0.1"
+    "body-parser": "^1.15.2",
+    "express": "^4.12.4",
+    "morgan": "^1.7.0",
+    "uuid": "^2.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.1.2"
+  },
   "author": "mmatty",
   "license": "MIT"
 }
